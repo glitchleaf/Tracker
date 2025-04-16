@@ -53,3 +53,4 @@ Here are some quick links:
 - [Setting up manually](https://github.com/GoBLFC/Tracker/wiki/Setup-(Manual))
 - [Development setup](https://github.com/GoBLFC/Tracker/wiki/Development)
 - [Architecture/detailed info](https://github.com/GoBLFC/Tracker/wiki/Architecture)
+
