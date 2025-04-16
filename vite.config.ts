@@ -4,25 +4,22 @@ import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 import Components from 'unplugin-vue-components/vite';
 import { PrimeVueResolver } from '@primevue/auto-import-resolver';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
 	plugins: [
 		vue(),
+		tailwindcss(),
 		Components({
 			resolvers: [PrimeVueResolver()],
 		}),
 		laravel({
 			input: [
-				'resources/css/app.css',
-				'resources/sass/app.scss',
 				'resources/js/app.ts',
 				'resources/js/legacy/app.js',
 				'resources/js/legacy/auto-logout.js',
-				'resources/js/legacy/toggle-kiosk.js',
-				'resources/js/legacy/create-user.js',
 				'resources/js/legacy/event-selector.js',
 				'resources/js/legacy/seamless-forms.js',
-				'resources/js/legacy/admin/users.js',
 				'resources/js/legacy/admin/departments.js',
 				'resources/js/legacy/admin/events.js',
 				'resources/js/legacy/admin/bonuses.js',

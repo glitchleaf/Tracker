@@ -3,16 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Str;
 
-class QuickCodeRequest extends FormRequest {
-	/**
-	 * Determine if the user is authorized to make this request.
-	 */
-	public function authorize(): bool {
-		return true;
-	}
-
+class PaginateRequest extends FormRequest {
 	/**
 	 * Get the validation rules that apply to the request.
 	 *
@@ -20,7 +12,8 @@ class QuickCodeRequest extends FormRequest {
 	 */
 	public function rules(): array {
 		return [
-			'code' => 'required|string|alpha_num|size:4',
+			'page' => 'sometimes|nullable|integer',
+			'count' => 'sometimes|nullable|integer|between:1,50',
 		];
 	}
 
@@ -28,6 +21,9 @@ class QuickCodeRequest extends FormRequest {
 	 * Handle a passed validation attempt.
 	 */
 	protected function passedValidation(): void {
-		$this->replace(['code' => Str::upper($this->code)]);
+		$this->mergeIfMissing([
+			'page' => '0',
+			'count' => '20',
+		]);
 	}
 }

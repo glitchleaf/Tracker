@@ -149,10 +149,10 @@ const mainMenuItems = computed(() => {
 	if (isAdmin.value) {
 		items.push(
 			{
-				to: 'admin.users',
+				to: 'users.index',
 				label: 'Users',
 				icon: faUsers,
-				legacy: true,
+				legacy: false,
 			},
 			{
 				to: 'admin.events',
@@ -167,10 +167,10 @@ const mainMenuItems = computed(() => {
 				legacy: true,
 			},
 			{
-				to: 'admin.site',
+				to: 'settings.index',
 				label: 'Configuration',
 				icon: faScrewdriverWrench,
-				legacy: true,
+				legacy: false,
 			},
 		);
 	}
